@@ -23,6 +23,7 @@ app.use(bodyParser.json());
  
 app.post('/a', (req, res) => {
 
+	res.send('da')
 
 	const dataToSend = req.body.data;
 	const finger = req.body.finger
