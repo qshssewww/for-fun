@@ -18,7 +18,9 @@ const dbx = new Dropbox({ accessToken: process.env.TOKEN });
 
 app.use(bodyParser.json());
 
- app.use(cors())
+app.use(cors({
+  origin: 'https://for-fun-front.vercel.app'
+}));
  app.use(helmet())
  
 app.post('/a', (req, res) => {
