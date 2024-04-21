@@ -18,13 +18,13 @@ const PORT = process.env.PORT || 8081
 
 app.use(bodyParser.json());
 
-app.use(helmet())
-app.use(cors())
-app.use((req, res, next) => {
-  res.setHeader('Content-Security-Policy', "script-src 'self' https://for-fun-gules.vercel.app");
-	res.setHeader('Access-Control-Allow-Origin', "*");
-  next();
-});
+// app.use(helmet())
+ app.use(cors())
+// app.use((req, res, next) => {
+//   res.setHeader('Content-Security-Policy', "script-src 'self' https://for-fun-gules.vercel.app");
+// 	res.setHeader('Access-Control-Allow-Origin', "*");
+//   next();
+// });
 // app.post('/upload', (req, res) => {
 
 
