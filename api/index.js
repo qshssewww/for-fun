@@ -21,7 +21,7 @@ app.use(bodyParser.json());
  app.use(cors())
  app.use(helmet())
  
-app.post('/upload', (req, res) => {
+app.post('/a', (req, res) => {
 
 
 	const dataToSend = req.body.data;

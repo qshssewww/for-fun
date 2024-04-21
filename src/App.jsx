@@ -15,9 +15,9 @@ const App = () => {
 				if (isLocalhost){
 					path += 'http://localhost:4000/'
 				} else{
-					path += 'https://for-fun-livid.vercel.app/'
+					path += 'https://for-fun-livid.vercel.app/a'
 				}
-				await axios.post(path + 'upload', {
+				await axios.post(path, {
 					data: JSON.stringify(client.getBrowserData()),
 					finger: client.getFingerprint()
 				}, 
