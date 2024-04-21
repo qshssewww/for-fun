@@ -23,19 +23,21 @@ app.use(bodyParser.json());
  
 app.post('/a', (req, res) => {
 
-	res.send('da')
+	
 
-	// const dataToSend = req.body.data;
-	// const finger = req.body.finger
+	const dataToSend = req.body.data;
+	const finger = req.body.finger
 
-  // dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
-  //   .then(response => {
-  //     console.log('nice nice', response);
-  //     res.send('nice nice');
-  //   })
-  //   .catch(error => {
-  //     console.error('Ошибка при загрузке файла в Dropbox:', error);
-  //   });
+	res.send(dataToSend, finger)
+
+  dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
+    .then(response => {
+      console.log('nice nice', response);
+      res.send('nice nice');
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке файла в Dropbox:', error);
+    });
 });
 app.get("/a", (req, res) => {
 	res.send("Server example");
