@@ -7,16 +7,16 @@ const helmet = require('helmet')
 const bodyParser = require('body-parser');
 
 
-const envPath = path.resolve(__dirname, '../.env')
+// const envPath = path.resolve(__dirname, '../.env')
 
-dotenv.config({path: envPath});
+// dotenv.config({path: envPath});
 
 const app = express();
 
-const dbx = new Dropbox({ accessToken: process.env.TOKEN });
-const PORT = process.env.PORT || 4000
+// const dbx = new Dropbox({ accessToken: process.env.TOKEN });
+ const PORT = process.env.PORT || 4000
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // app.use(helmet())
  app.use(cors())
