@@ -23,7 +23,7 @@ const App = () => {
 				}
 				await axios.get(path)
 			.then(response => {
-				console.log('Ответ от сервера:', response.data);
+				console.log('Ответ от сервера:', response);
 			})
 			.catch(error => {
 				console.error('Произошла ошибка:', error);
