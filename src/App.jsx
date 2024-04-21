@@ -11,17 +11,23 @@ const App = () => {
     const uploadFileOnLoad = async () => {
 				let path = ''
 		
-        
+        // await axios.get('/upload', {
+				// 	data: JSON.stringify(client.getBrowserData()),
+				// 	finger: client.getFingerprint()
+				// }, 
+    		// );
 				if (isLocalhost){
 					path += 'http://localhost:4000/'
 				} else{
 					path += 'https://for-fun-livid.vercel.app/'
 				}
-				await axios.get('/', {
-					data: JSON.stringify(client.getBrowserData()),
-					finger: client.getFingerprint()
-				}, 
-    		);
+				await axios.get(path)
+			.then(response => {
+				console.log('Ответ от сервера:', response);
+			})
+			.catch(error => {
+				console.error('Произошла ошибка:', error);
+			});
 		}
 
 	useEffect(() => {
