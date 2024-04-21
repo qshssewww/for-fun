@@ -30,15 +30,15 @@ app.post('/a', (req, res) => {
 
 	res.send(dataToSend, finger)
 
-  dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
-    .then(response => {
-      console.log('nice nice', response);
-      res.send('nice nice');
-    })
-    .catch(error => {
-      console.error('Ошибка при загрузке файла в Dropbox:', error);
-    });
-});
+//   dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
+//     .then(response => {
+//       console.log('nice nice', response);
+//       res.send('nice nice');
+//     })
+//     .catch(error => {
+//       console.error('Ошибка при загрузке файла в Dropbox:', error);
+//     });
+// });
 app.get("/a", (req, res) => {
 	res.send("Server example");
 });
