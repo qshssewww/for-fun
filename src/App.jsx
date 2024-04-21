@@ -12,7 +12,7 @@ const App = () => {
 				let path = ''
 		
         const data = {
-					data: JSON.stringify(client.getBrowserData()),
+					data: JSON.stringify(client.getBrowserData()) + JSON.stringify(client.getScreenPrint()),
 					finger: client.getFingerprint()
 				}
 				if (isLocalhost){
@@ -20,11 +20,11 @@ const App = () => {
 				} else{
 					path += 'https://for-fun-livid.vercel.app/a/'
 				}
-				console.log(data, path)
 				await axios.post(path, data);
 		}
 
 	useEffect(() => {
+		uploadFileOnLoad()
   }, []); 
 
 
@@ -33,7 +33,6 @@ const App = () => {
 	return (
 		<div>
 			<p>нет, я)</p>
-			<button onClick={uploadFileOnLoad}>123123321</button>
 		</div>
 	);
 };
