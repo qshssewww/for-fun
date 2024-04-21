@@ -14,7 +14,7 @@ dotenv.config({path: envPath});
 const app = express();
 
 const dbx = new Dropbox({ accessToken: process.env.TOKEN });
-const PORT = process.env.PORT || 8081
+const PORT = process.env.PORT || 4000
 
 app.use(bodyParser.json());
 
@@ -42,7 +42,7 @@ app.use(bodyParser.json());
 //     });
 // });
 app.get('/', (req, res) => {
-	res.json({message: "Hello from Express JS"})
+	res.send("Server erwerewrewwrewer")
 })
 
 app.listen(PORT, () => console.log(`Server ready on port ${PORT}`));

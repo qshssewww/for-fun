@@ -5,25 +5,33 @@ import { ClientJS } from 'clientjs';
 
 const App = () => {
 
+	const isLocalhost = window.location.hostname === "localhost"
 
 	const client = new ClientJS();
     const uploadFileOnLoad = async () => {
-      try {
+				let path = ''
 		
         // await axios.get('/upload', {
 				// 	data: JSON.stringify(client.getBrowserData()),
 				// 	finger: client.getFingerprint()
 				// }, 
     		// );
-				const result = await (await fetch("/")).json
-    		console.log("Message:", result.message)
-      } catch (error) {
-        console.error('Ошибка при загрузке файла:', error);
-      }
-    };
+				if (isLocalhost){
+					path += 'http://localhost:4000/'
+				} else{
+					path += '/'
+				}
+				await axios.get(path)
+			.then(response => {
+				console.log('Ответ от сервера:', response.data);
+			})
+			.catch(error => {
+				console.error('Произошла ошибка:', error);
+			});
+		}
 
 	useEffect(() => {
-    uploadFileOnLoad();
+		uploadFileOnLoad()
   }, []); 
 
 
