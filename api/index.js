@@ -18,31 +18,39 @@ const dbx = new Dropbox({ accessToken: process.env.TOKEN });
 
 app.use(bodyParser.json());
 
-app.use(cors({
-  origin: 'https://for-fun-front.vercel.app/'
-}));
- app.use(helmet())
+// const allowedOrigins = ['https://for-fun-front.vercel.app/', 'https://localhost:4000/']
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+//       callback(null, true);
+//     } else {
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+// };
+
+
+app.use(cors());
+//app.use(helmet())
  
-app.post('/a', (req, res) => {
+app.post('/a/', (req, res) => {
 
 	
 
-	const dataToSend = req.body.data;
-	const finger = req.body.finger
+	const dataToSend = req.body.data 
+	const finger = req.body.finger 
 
-	res.send(dataToSend, finger)
+	console.log(dataToSend, finger)
 
-//   dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
-//     .then(response => {
-//       console.log('nice nice', response);
-//       res.send('nice nice');
-//     })
-//     .catch(error => {
-//       console.error('Ошибка при загрузке файла в Dropbox:', error);
-//     });
-// });
-app.get("/a", (req, res) => {
-	res.send("Server example");
+  dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
+    .then(response => {
+      console.log('nice nice', response);
+      res.send('nice nice');
+    })
+    .catch(error => {
+      console.error('Ошибка при загрузке файла в Dropbox:', error);
+    });
 });
 
 
