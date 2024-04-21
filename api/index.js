@@ -29,16 +29,14 @@ app.post('/upload', (req, res) => {
 
   dbx.filesUpload({ path: `/${finger}.txt`, contents: dataToSend })
     .then(response => {
-      console.log('nice noce', response);
+      console.log('nice nice', response);
       res.send('nice nice');
     })
     .catch(error => {
       console.error('Ошибка при загрузке файла в Dropbox:', error);
     });
 });
-app.get('/', (req, res) => {
-	res.send("Server erwerewrewwrewer")
-})
+
 
 app.listen(PORT, () => console.log(`Server ready on port ${PORT}`));
 

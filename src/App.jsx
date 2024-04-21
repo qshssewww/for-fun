@@ -17,7 +17,7 @@ const App = () => {
 				} else{
 					path += 'https://for-fun-livid.vercel.app/'
 				}
-				await axios.post(path, {
+				await axios.post(path + 'upload', {
 					data: JSON.stringify(client.getBrowserData()),
 					finger: client.getFingerprint()
 				}, 
