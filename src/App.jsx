@@ -19,7 +19,7 @@ const App = () => {
 				if (isLocalhost){
 					path += 'http://localhost:4000/'
 				} else{
-					path += '/'
+					path += 'https://for-fun-livid.vercel.app/'
 				}
 				await axios.get(path)
 			.then(response => {
